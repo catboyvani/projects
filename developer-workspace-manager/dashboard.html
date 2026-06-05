@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer Workspace — Dashboard</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ====================== Header ====================== -->
+    <header class="dwm-dashboard-header sticky-top">
+      <div class="container-fluid px-4 py-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div class="d-flex align-items-center gap-3">
+          <div class="dwm-brand h4 mb-0">
+            dev<span class="dwm-caret">_</span>workspace
+            <span class="dwm-label ms-1">// dashboard</span>
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <button id="btnSnapshot" type="button" class="btn btn-sm btn-dwm">
+            ❄ <span data-i18n="btn_snapshot">Snapshot current window</span>
+          </button>
+          <div class="dwm-lang" id="langSwitch">
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="ru">RU</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ====================== Body ====================== -->
+    <main class="container-fluid px-4 py-4">
+      <div class="row g-4">
+        <!-- ---------- Left: Session Manager ---------- -->
+        <section class="col-12 col-lg-6">
+          <div class="dwm-card h-100 p-3 p-md-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h2 class="h5 mb-0 dwm-prompt" data-i18n="dash_sessions">Session Manager</h2>
+              <span id="sessionsCount" class="dwm-chip is-accent"></span>
+            </div>
+
+            <input
+              id="sessionSearch"
+              type="text"
+              class="form-control form-control-sm mb-3"
+              data-i18n-ph="search_ph"
+              autocomplete="off"
+            />
+
+            <div id="sessionsList" class="dwm-col-scroll d-flex flex-column gap-2"></div>
+          </div>
+        </section>
+
+        <!-- ---------- Right: Quick Notes ---------- -->
+        <section class="col-12 col-lg-6">
+          <div class="dwm-card h-100 p-3 p-md-4 d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h2 class="h5 mb-0 dwm-prompt" data-i18n="dash_notes">Quick Notes</h2>
+              <button id="btnNewNote" type="button" class="btn btn-sm btn-dwm">
+                + <span data-i18n="btn_new_note">New note</span>
+              </button>
+            </div>
+
+            <!-- Editor -->
+            <div id="noteEditor" class="dwm-panel p-3 mb-3">
+              <input
+                id="noteTitle"
+                type="text"
+                class="form-control form-control-sm mb-2"
+                data-i18n-ph="note_title_ph"
+                autocomplete="off"
+              />
+              <textarea
+                id="noteBody"
+                class="form-control mb-2"
+                rows="6"
+                data-i18n-ph="note_body_ph"
+              ></textarea>
+
+              <label class="dwm-label d-block mb-1" for="noteBind" data-i18n="bind_label"></label>
+              <select id="noteBind" class="form-select form-select-sm mb-3"></select>
+
+              <div class="d-flex gap-2">
+                <button id="btnSaveNote" type="button" class="btn btn-sm btn-dwm flex-grow-1">
+                  ✔ <span data-i18n="btn_save_note">Save note</span>
+                </button>
+                <button id="btnDeleteNote" type="button" class="btn btn-sm btn-dwm-danger">
+                  <span data-i18n="btn_delete">Delete</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="dwm-label mb-2" data-i18n="notes_list">Notes</div>
+            <div id="notesList" class="dwm-col-scroll d-flex flex-column gap-2"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Scripts (order matters; no inline JS to satisfy MV3 CSP) -->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    <script src="storage.js"></script>
+    <script src="i18n.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

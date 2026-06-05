@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workspace Manager</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dwm-popup">
+    <!-- Header: brand + language switch -->
+    <header class="d-flex align-items-center justify-content-between mb-3">
+      <div>
+        <div class="dwm-brand h6 mb-0">
+          dev<span class="dwm-caret">_</span>workspace
+        </div>
+        <div class="dwm-label" data-i18n="tagline">local-first sessions &amp; notes</div>
+      </div>
+      <div class="dwm-lang" id="langSwitch">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="ru">RU</button>
+      </div>
+    </header>
+
+    <!-- Freeze current window -->
+    <section class="dwm-card p-3 mb-3">
+      <label class="dwm-label d-block mb-1" for="sessionName" data-i18n="new_session"></label>
+      <input
+        id="sessionName"
+        type="text"
+        class="form-control form-control-sm mb-2"
+        data-i18n-ph="session_name_ph"
+        autocomplete="off"
+      />
+      <button id="btnFreeze" type="button" class="btn btn-sm btn-dwm w-100">
+        ❄ <span data-i18n="btn_freeze">Freeze current window</span>
+      </button>
+    </section>
+
+    <!-- Open dashboard -->
+    <button id="btnDashboard" type="button" class="btn btn-sm btn-dwm-ghost w-100 mb-3">
+      ⤢ <span data-i18n="btn_dashboard">Open full dashboard</span>
+    </button>
+
+    <!-- Last 3 sessions -->
+    <section>
+      <div class="dwm-label mb-2 dwm-prompt" data-i18n="recent_sessions">Recent sessions</div>
+      <div id="recentList" class="d-flex flex-column gap-2"></div>
+    </section>
+
+    <!-- Scripts (order matters; no inline JS to satisfy MV3 CSP) -->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    <script src="storage.js"></script>
+    <script src="i18n.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
