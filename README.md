@@ -3,7 +3,7 @@
 A fully offline Chrome extension (Manifest V3) that snapshots browser windows
 into named **sessions**, restores them in one click, and keeps **quick notes**
 that can be linked to a session. All data lives client-side in
-`chrome.storage.local` with `unlimitedStorage` — **no server, no network calls.**
+`chrome.storage.local` with `unlimitedStorage` - **no server, no network calls.**
 
 Built with **Vanilla JS (ES6+)**, `async/await` over the `chrome.*` promise APIs,
 and a custom dark "terminal / cyber-IT" theme on top of a **locally bundled
@@ -12,7 +12,7 @@ Bootstrap 5** (no CDN, to satisfy the MV3 Content Security Policy). UI is
 
 ## Features
 
-- **Popup** — freeze the current window into a session, open the dashboard,
+- **Popup** - freeze the current window into a session, open the dashboard,
   and restore one of the last 3 sessions in a click.
 - **Dashboard**
   - *Session Manager* (left): list / search / restore / rename / delete
